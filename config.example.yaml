@@ -1,0 +1,23 @@
+app:
+  poll_interval_seconds: 120
+
+database:
+  path: "data/applytracker.db"
+
+gmail_imap:
+  host: "imap.gmail.com"
+  port: 993
+  # mail（OAuth2）
+  username: ""
+  auth_mode: "oauth"   # for now
+
+rules:
+  applied_keywords:
+    - "received your application"
+    - "application received"
+    - "thank you for applying"
+  rejected_keywords:
+    - "unfortunately"
+    - "we will not be moving forward"
+    - "not selected"
+    - "pursue other candidates"
