@@ -21,3 +21,7 @@ rules:
     - "we will not be moving forward"
     - "not selected"
     - "pursue other candidates"
+
+notify:
+  rejection_sound_path: "assets/rejected.mp3"
+

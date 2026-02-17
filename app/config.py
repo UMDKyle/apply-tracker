@@ -28,11 +28,19 @@ class RulesConfig:
 
 
 @dataclass
+class NotifyConfig:
+    rejection_sound_path: str | None
+
+@dataclass
 class Settings:
     app: AppConfig
     database: DatabaseConfig
     gmail_imap: GmailImapConfig
     rules: RulesConfig
+    notify: NotifyConfig
+
+
+
 
 
 def load_settings(config_path: str = "config.yaml") -> Settings:
@@ -55,4 +63,8 @@ def load_settings(config_path: str = "config.yaml") -> Settings:
             applied_keywords=[s.lower() for s in raw["rules"]["applied_keywords"]],
             rejected_keywords=[s.lower() for s in raw["rules"]["rejected_keywords"]],
         ),
+        notify=NotifyConfig(
+            rejection_sound_path=raw.get("notify", {}).get("rejection_sound_path")
+        ),
+
     )
