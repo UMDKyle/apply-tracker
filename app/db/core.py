@@ -18,6 +18,11 @@ CREATE TABLE IF NOT EXISTS email_events (
 
 CREATE INDEX IF NOT EXISTS idx_email_events_category ON email_events(category);
 CREATE INDEX IF NOT EXISTS idx_email_events_received_at ON email_events(received_at);
+CREATE TABLE IF NOT EXISTS app_state (
+  key TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+
 """
 
 

@@ -1,6 +1,16 @@
-.venv/
+# Python
 __pycache__/
 *.pyc
-data/
+*.pyo
+.venv/
+
+# Config & secrets
 config.yaml
-.env
+secrets/
+
+# Database
+data/
+
+# OS
+.DS_Store
+Thumbs.db

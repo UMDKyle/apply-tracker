@@ -32,15 +32,19 @@ class NotifyConfig:
     rejection_sound_path: str | None
 
 @dataclass
+class GmailOAuthConfig:
+    client_secret_file: str
+    token_file: str
+    scopes: list[str]
+
+@dataclass
 class Settings:
     app: AppConfig
     database: DatabaseConfig
     gmail_imap: GmailImapConfig
     rules: RulesConfig
     notify: NotifyConfig
-
-
-
+    gmail_oauth: GmailOAuthConfig
 
 
 def load_settings(config_path: str = "config.yaml") -> Settings:
@@ -66,5 +70,12 @@ def load_settings(config_path: str = "config.yaml") -> Settings:
         notify=NotifyConfig(
             rejection_sound_path=raw.get("notify", {}).get("rejection_sound_path")
         ),
+        
+        gmail_oauth=GmailOAuthConfig(
+            client_secret_file=str(raw["gmail_oauth"]["client_secret_file"]),
+            token_file=str(raw["gmail_oauth"]["token_file"]),
+            scopes=[str(s) for s in raw["gmail_oauth"]["scopes"]],
+        ),
+
 
     )

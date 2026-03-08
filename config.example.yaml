@@ -25,3 +25,10 @@ rules:
 notify:
   rejection_sound_path: "assets/rejected.mp3"
 
+gmail_oauth:
+  client_secret_file: "secrets/client_secret.json"
+  token_file: "secrets/token.json"
+  scopes:
+    - "https://mail.google.com/"
+
+
